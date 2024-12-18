@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/home.js" defer></script> <!-- Перенос JS в отдельный файл -->
+</head>
+<body>
+<!-- Хедер сайта -->
+<header th:replace="~{header :: header}"></header>
+
+<main class="container">
+  <!-- Слайдер изображений -->
+  <section class="slider" aria-label="Image Slider">
+    <div class="slides">
+      <div class="slide"><img src="/images/Slide%201.webp" alt="Промо слайд 1"></div>
+      <div class="slide"><img src="/images/Slide%202.webp" alt="Промо слайд 2"></div>
+      <div class="slide"><img src="/images/Slide%203.webp" alt="Промо слайд 3"></div>
+      <div class="slide"><img src="/images/Slide%204.webp" alt="Промо слайд 4"></div>
+      <div class="slide"><img src="/images/Slide%205.webp" alt="Промо слайд 5"></div>
+    </div>
+  </section>
+
+  <!-- Бегущая строка -->
+  <section class="marquee" aria-label="Акции">
+    <p>АКЦИЯ! 20 + 10 скидки на все товары! Успейте купить!</p>
+  </section>
+
+  <!-- Кнопка для перехода в магазин -->
+  <section class="shop-button-container">
+    <a href="/products" class="shop-button">Магазин</a>
+  </section>
+
+  <!-- Новостная лента -->
+  <section class="news-ticker" aria-label="Новости">
+    <h3>Новости</h3>
+    <div class="news-items">
+      <div class="news-item">Gaini has become the most popular teacher on the planet!</div>
+      <div class="news-item">Java makes people sick. Knew IT sucks and this is FACT.</div>
+      <div class="news-item">Распродажа: 20 + 10 скидки до конца месяца!</div>
+      <div class="news-item">Новые товары уже в продаже. Спешите!</div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

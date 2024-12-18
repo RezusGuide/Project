@@ -1,0 +1,353 @@
+/* Основные цвета */
+:root {
+    --cayenne-pepper: #AF4425;
+    --cinnamon: #662E1C;
+    --cream: #EBDCB2;
+    --caramel: #C9A66B;
+    --background: #F7F1E3; /* Дополнительный фон */
+}
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: var(--background);
+    color: var(--cinnamon);
+    line-height: 1.6;
+}
+
+/* Form Container */
+.form-container {
+    background-color: var(--cream);
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 2px solid var(--caramel);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container .form-title {
+    color: var(--cayenne-pepper);
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    margin-top: 15px;
+}
+
+
+/* Header */
+header {
+    background-color: var(--cream);
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: var(--cayenne-pepper);
+    font-family: "Georgia", serif;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--cinnamon);
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--caramel);
+}
+
+/* Buttons */
+button, a.button {
+    background-color: var(--cayenne-pepper);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, a.button:hover {
+    background-color: var(--caramel);
+}
+
+/* Forms */
+form {
+    background-color: var(--cream);
+    padding: 20px;
+    border: 2px solid var(--caramel);
+    border-radius: 10px;
+    width: 300px;
+    margin: 30px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--caramel);
+    border-radius: 5px;
+}
+
+/* Containers */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Слайдер */
+.slider {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 4px solid var(--cayenne-pepper);
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    width: calc(100% * 5 / 3); /* 5 слайдов с 3 показанными */
+}
+
+.slide {
+    flex: 0 0 calc(100% / 3);
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Кнопка Магазин */
+.shop-button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.shop-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--cayenne-pepper);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.shop-button:hover {
+    background-color: var(--caramel);
+    color: var(--background);
+}
+
+/* Бегущая строка */
+.marquee {
+    background-color: var(--cinnamon); /* Цвет фона */
+    color: var(--cream); /* Цвет текста */
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Новостная лента */
+.news-ticker {
+    width: 90%;
+    max-width: 800px;
+    height: 200px; /* Высота новостной ленты */
+    margin: 20px auto;
+    border: 2px solid var(--cinnamon);
+    border-radius: 10px;
+    background-color: var(--cream);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll; /* Вертикальный ползунок */
+    padding-right: 10px; /* Отступ от ползунка */
+}
+
+/* Стили для ползунка */
+.news-ticker::-webkit-scrollbar {
+    width: 10px;
+}
+
+.news-ticker::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 10px;
+}
+
+.news-ticker::-webkit-scrollbar-thumb {
+    background: var(--cinnamon);
+    border-radius: 10px;
+}
+
+.news-ticker::-webkit-scrollbar-thumb:hover {
+    background: var(--caramel);
+}
+
+/* Стили новостей */
+.news-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Отступ между новостями */
+}
+
+.news-item {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.3em;
+    color: var(--cayenne-pepper);
+    font-weight: bold;
+    line-height: 1.5;
+    background-color: var(--background); /* Цвет фона для новости */
+    border-radius: 5px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.profile-sidebar {
+    background-color: var(--cream);
+    border: 2px solid var(--cinnamon);
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+    list-style: none;
+    padding: 0;
+    color: var(--cinnamon);
+    font-size: 1.1em;
+}
+
+.profile-info li {
+    margin: 10px 0;
+}
+
+.profile-activity {
+    background-color: var(--cream);
+    border-radius: 10px;
+    width: 65%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--caramel);
+}
+
+.activity-feed {
+    list-style: none;
+    padding: 0;
+}
+
+.activity-feed li {
+    padding: 10px;
+    background-color: var(--background);
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+    color: var(--cayenne-pepper);
+}
+
+.profile-image {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid var(--cayenne-pepper);
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+}
+
+.profile-image:hover img {
+    opacity: 0.7;
+}
+
+.category-card {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--cream);
+    border: 3px solid var(--cinnamon);
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.category-card .button {
+    display: block;
+    padding: 15px 20px;
+    text-align: center;
+    background-color: var(--cayenne-pepper);
+    color: var(--cream);
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.category-card .button:hover {
+    background-color: var(--caramel);
+}
+
+.product-card .button {
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: var(--cayenne-pepper);
+    color: var(--cream);
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.product-card .button:hover {
+    background-color: var(--caramel);
+}

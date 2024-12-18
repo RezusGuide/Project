@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Подтверждение личности</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="form-container">
+    <h2>Подтверждение личности</h2>
+    <form th:action="@{/shop/send-mail}" method="post">
+        <input type="hidden" name="productId" th:value="${product.id}">
+        <label>Логин: <input type="text" name="username" required></label><br>
+        <label>Пароль: <input type="password" name="password" required></label><br>
+        <button type="submit" class="button">Подтвердить</button>
+    </form>
+</div>
+</body>
+</html>

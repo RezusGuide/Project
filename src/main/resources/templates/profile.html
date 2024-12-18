@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Профиль</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+
+<div class="profile-container">
+    <div class="profile-sidebar">
+        <form th:action="@{/profile/upload-photo}" method="post" enctype="multipart/form-data" id="photoForm">
+            <label for="fileInput" class="profile-image">
+                <img th:src="${user.photo} ?: '/images/profile-placeholder.png'" alt="Profile Photo" id="profilePhoto">
+                <input type="file" id="fileInput" name="photo" accept="image/*" style="display: none;" onchange="submitForm()">
+            </label>
+        </form>
+        <h2 th:text="${user.username}">Имя</h2>
+        <ul class="profile-info">
+            <li>☎ Номер: <span th:text="${user.phone}">+123456789</span></li>
+            <li>✉ Email: <span th:text="${user.email}">email@mail.com</span></li>
+            <li>📝 О себе: <span th:text="${user.photo} ?: 'Нет информации'"></span></li>
+        </ul>
+    </div>
+
+    <!-- Правая панель с лентой активности -->
+    <div class="profile-activity">
+        <h3>Лента активности</h3>
+        <ul class="activity-feed">
+            <li th:each="event : ${activity}" th:text="${event}">Активность пользователя</li>
+        </ul>
+    </div>
+
+    <div th:if="${param.error}">
+        <p style="color: red;" th:text="${param.error == 'empty' ? 'Файл не выбран!' : 'Ошибка загрузки файла!'}"></p>
+    </div>
+    <div th:if="${param.success}">
+        <p style="color: green;">Фото успешно обновлено!</p>
+    </div>
+</div>
+
+<script>
+    function submitForm() {
+        document.getElementById("photoForm").submit();
+    }
+</script>
+</body>
+</html>

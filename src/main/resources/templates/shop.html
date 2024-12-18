@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Продукты</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            width: 30%; /* Ширина карточки */
+            height: 300px; /* Высота карточки */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            background-color: var(--cream);
+            border: 3px solid var(--cinnamon);
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: var(--cayenne-pepper);
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .product-card p {
+            font-size: 1.2em;
+            color: var(--cinnamon);
+        }
+
+        .product-card .price {
+            font-weight: bold;
+            color: var(--cayenne-pepper);
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+
+    <div class="product-container" th:if="${!#lists.isEmpty(products)}">
+        <div class="product-card" th:each="product : ${products}">
+            <img th:src="${product.imageUrl}" alt="Product Image">
+            <h3 th:text="${product.name}">Название товара</h3>
+            <p th:text="${product.description}">Описание товара</p>
+            <p class="price" th:text="'Цена: $' + ${product.price}">Цена</p>
+            <a th:href="@{'/cart/add/' + ${product.id}}" class="button">Добавить в корзину</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 style="text-align: center; color: var(--cayenne-pepper); margin-bottom: 20px;">
+            Категории одежды
+        </h2>
+        <div class="category-container">
+            <div th:each="category : ${categories}" class="category-card">
+                <a th:href="@{'/shop/products?category=' + ${category.name}}" class="button">
+                    <h3 th:text="${category.name}">Название категории</h3>
+                    <p th:text="${category.description}">Описание категории</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
